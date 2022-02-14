@@ -218,7 +218,7 @@ export const WithoutConnectButton: React.FC = () => {
   return (
     <BrowserRouter>
       <Menu
-        isDark={false}
+        isDark={true}
         toggleTheme={noop}
         langs={langs}
         setLang={noop}

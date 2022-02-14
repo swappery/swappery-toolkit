@@ -78,6 +78,7 @@ export type Colors = {
   black: string;
   cyan: string;
   green: string;
+  gray700: string;
   logoBackground: string;
   navBarBackground: string;
   border: string;
