@@ -30,11 +30,11 @@ export const styleVariants = {
     borderRadius: "25px",
   },
   [variants.SECONDARY]: {
-    backgroundColor: "transparent",
-    border: "2px solid",
-    borderColor: "primary",
+    backgroundColor: additionalColors.yellow300,
+    border: "1px solid black",
     boxShadow: "none",
     color: "primary",
+    borderRadius: "25px",
     ":disabled": {
       backgroundColor: "transparent",
     },
