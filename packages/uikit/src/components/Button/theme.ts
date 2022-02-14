@@ -1,4 +1,5 @@
 import { scales, variants } from "./types";
+import { additionalColors } from "../../theme/colors";
 
 export const scaleVariants = {
   [scales.MD]: {
@@ -18,8 +19,15 @@ export const scaleVariants = {
 
 export const styleVariants = {
   [variants.PRIMARY]: {
-    backgroundColor: "primary",
-    color: "white",
+    backgroundColor: additionalColors.green,
+    color: "black",
+    fontFamily: "Orator Std",
+    border: "1px solid",
+    fontSize: "18px",
+    fontStyle: "normal",
+    fontWeight: "400",
+    boxShadow: "none",
+    borderRadius: "25px",
   },
   [variants.SECONDARY]: {
     backgroundColor: "transparent",
@@ -37,7 +45,7 @@ export const styleVariants = {
     color: "primary",
   },
   [variants.SUBTLE]: {
-    backgroundColor: "textSubtle",
+    backgroundColor: additionalColors.cyan,
     color: "backgroundAlt",
   },
   [variants.DANGER]: {

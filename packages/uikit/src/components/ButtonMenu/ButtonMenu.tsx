@@ -3,26 +3,23 @@ import styled, { DefaultTheme } from "styled-components";
 import { space } from "styled-system";
 import { scales, variants } from "../Button/types";
 import { ButtonMenuProps } from "./types";
-
+import { additionalColors } from "../../theme/colors";
 interface StyledButtonMenuProps extends ButtonMenuProps {
   theme: DefaultTheme;
 }
 
-const getBackgroundColor = ({ theme, variant }: StyledButtonMenuProps) => {
-  return theme.colors[variant === variants.SUBTLE ? "input" : "tertiary"];
-};
 
-const getBorderColor = ({ theme, variant }: StyledButtonMenuProps) => {
-  return theme.colors[variant === variants.SUBTLE ? "inputSecondary" : "disabled"];
+const getBorderColor = ({ theme }: StyledButtonMenuProps) => {
+  return theme.colors.border;
 };
 
 const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
-  background-color: ${getBackgroundColor};
-  border-radius: 16px;
+  background-color: "transparent";
+  border-radius: 25px;
   display: ${({ fullWidth }) => (fullWidth ? "flex" : "inline-flex")};
   border: 1px solid ${getBorderColor};
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
-
+  padding: 0px 50px;
   & > button,
   & > a {
     flex: ${({ fullWidth }) => (fullWidth ? 1 : "auto")};

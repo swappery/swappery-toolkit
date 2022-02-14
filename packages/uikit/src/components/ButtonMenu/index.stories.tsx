@@ -31,10 +31,9 @@ export const Default: React.FC = () => {
     <>
       <Row>
         <ButtonMenu activeIndex={index} onItemClick={handleClick}>
-          <ButtonMenuItem>Button 1</ButtonMenuItem>
-          <ButtonMenuItem>Button 2</ButtonMenuItem>
-          <ButtonMenuItem>Button 3</ButtonMenuItem>
-          <ButtonMenuItem>Button 4</ButtonMenuItem>
+          <ButtonMenuItem>24H</ButtonMenuItem>
+          <ButtonMenuItem>1W</ButtonMenuItem>
+          <ButtonMenuItem>1M</ButtonMenuItem>
         </ButtonMenu>
       </Row>
       <Row>
@@ -47,10 +46,9 @@ export const Default: React.FC = () => {
       </Row>
       <Row>
         <ButtonMenu activeIndex={index} onItemClick={handleClick} variant="subtle">
-          <ButtonMenuItem>Button 1</ButtonMenuItem>
-          <ButtonMenuItem>Button 2</ButtonMenuItem>
-          <ButtonMenuItem>Button 3</ButtonMenuItem>
-          <ButtonMenuItem>Button 4</ButtonMenuItem>
+          <ButtonMenuItem>24h</ButtonMenuItem>
+          <ButtonMenuItem>1W</ButtonMenuItem>
+          <ButtonMenuItem>1M</ButtonMenuItem>
         </ButtonMenu>
       </Row>
       <Row>

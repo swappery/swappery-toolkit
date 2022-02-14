@@ -80,6 +80,7 @@ export type Colors = {
   green: string;
   logoBackground: string;
   navBarBackground: string;
+  border: string;
 };
 
 export type ZIndices = {

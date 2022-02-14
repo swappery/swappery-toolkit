@@ -60,11 +60,14 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   max-width: 100%;
 `;
 
-const Logo = styled(Flex)<FlexProps>`
+const Logo = styled.a<{ width: string }>`
+  display: flex;
   justify-content: center;
   align-items: center;
   border-right: 0.5px solid black;
   border-bottom: 0.5px solid black;
+  width: ${({ width }) => width};
+  color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.logoBackground};
   padding-right: 2rem;
   padding-left: 2rem;
@@ -73,6 +76,9 @@ const Logo = styled(Flex)<FlexProps>`
 `;
 
 const MenuItemsWrapper = styled(MenuItems)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-right: 0.5px solid black;
   border-bottom: 0.5px solid black;
   padding-right: 2rem;

@@ -87,7 +87,7 @@ const defaultProps = {
   currentLang: "EN",
   cakePriceUsd: 0.023158668932877668,
   links,
-  subLinks: links,
+  subLinks: links.slice(0, 1),
   footerLinks,
   profile: null,
   userMenu: <UserMenuComponent account="0xbdda50183d817c3289f895a4472eb475967dc980" />,
@@ -194,7 +194,7 @@ export const NotConnected: React.FC = () => {
         setLang={noop}
         currentLang="EN"
         links={links}
-        subLinks={defaultProps.subLinks}
+        subLinks={subLinks}
         footerLinks={footerLinks}
       >
         <div>
