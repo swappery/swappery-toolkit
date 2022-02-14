@@ -14,6 +14,7 @@ import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_M
 import { NavProps } from "./types";
 import LangSelector from "../../components/LangSelector/LangSelector";
 import { MenuContext } from "./context";
+import { ThemeSwitcher } from "../../components/ThemeSwitcher";
 
 const Wrapper = styled.div`
   position: relative;
@@ -60,11 +61,14 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   max-width: 100%;
 `;
 
-const Logo = styled(Flex)<FlexProps>`
+const Logo = styled.a<{ width: string }>`
+  display: flex;
   justify-content: center;
   align-items: center;
   border-right: 0.5px solid black;
   border-bottom: 0.5px solid black;
+  width: ${({ width }) => width};
+  color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.logoBackground};
   padding-right: 2rem;
   padding-left: 2rem;
@@ -73,8 +77,11 @@ const Logo = styled(Flex)<FlexProps>`
 `;
 
 const MenuItemsWrapper = styled(MenuItems)`
-  border-right: 0.5px solid black;
-  border-bottom: 0.5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
   padding-right: 2rem;
   padding-left: 2rem;
   background-color: ${({ theme }) => theme.colors.navBarBackground};
@@ -88,22 +95,17 @@ const UserMenu = styled(Flex)<FlexProps>`
 `;
 
 const Menu: React.FC<NavProps> = ({
-  linkComponent = "a",
   userMenu,
+  linkComponent = "a",
   banner,
-  globalMenu,
   isDark,
   toggleTheme,
-  currentLang,
-  setLang,
   cakePriceUsd,
   links,
   subLinks,
   footerLinks,
   activeItem,
   activeSubItem,
-  langs,
-  buyCakeLabel,
   children,
 }) => {
   const { isMobile } = useMatchBreakpoints();
@@ -157,29 +159,19 @@ const Menu: React.FC<NavProps> = ({
           <StyledNav>
             <Flex width="67%">
               {/* <Logo isDark={isDark} href={homeLink?.href ?? "/"} /> */}
-              <Logo width="50%">THE SWAPPERY</Logo>
+              <Logo width="50%" href="/">
+                THE SWAPPERY
+              </Logo>
               {!isMobile && (
                 <MenuItemsWrapper items={links} activeItem={activeItem} activeSubItem={activeSubItem} width="50%" />
               )}
             </Flex>
             <UserMenu alignItems="center" height="100%" width="33%">
               {userMenu}
-              {!isMobile && (
-                <Box mr="12px">
-                  <CakePrice cakePriceUsd={cakePriceUsd} />
-                </Box>
-              )}
-              {/* <Box mt="4px">
-                <LangSelector
-                  currentLang={currentLang}
-                  langs={langs}
-                  setLang={setLang}
-                  buttonScale="xs"
-                  color="textSubtle"
-                  hideLanguage
-                />
-              </Box> */}
-              {globalMenu}
+              <Box mr="12px">
+                <CakePrice cakePriceUsd={cakePriceUsd} />
+              </Box>
+              <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
             </UserMenu>
           </StyledNav>
         </FixedContainer>
@@ -200,17 +192,7 @@ const Menu: React.FC<NavProps> = ({
         <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "0"}>
           <Inner isPushed={false} showMenu={showMenu}>
             {children}
-            <Footer
-              items={footerLinks}
-              isDark={isDark}
-              toggleTheme={toggleTheme}
-              langs={langs}
-              setLang={setLang}
-              currentLang={currentLang}
-              cakePriceUsd={cakePriceUsd}
-              buyCakeLabel={buyCakeLabel}
-              mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]}
-            />
+            <Footer items={footerLinks} mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]} />
           </Inner>
         </BodyWrapper>
         {isMobile && <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />}

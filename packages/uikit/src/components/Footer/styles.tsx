@@ -4,6 +4,8 @@ import { Box, Flex } from "../Box";
 import SocialLinks from "./Components/SocialLinks";
 
 export const StyledFooter = styled(Flex)`
+  border-width: 1px;
+  border-color: ${({ theme }) => theme.colors.border};
   background: ${darkColors.backgroundAlt};
 `;
 
@@ -49,7 +51,8 @@ export const StyledToolsContainer = styled(Flex)`
 `;
 
 export const StyledSocialLinks = styled(SocialLinks)`
-  border-bottom: 1px solid ${darkColors.cardBorder};
+  align-items: center;
+  justify-content: right;
 `;
 
 export const StyledText = styled.span`
