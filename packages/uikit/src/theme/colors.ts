@@ -21,6 +21,7 @@ export const additionalColors = {
   black: "#000",
   yellow300: "#FFF8D4",
   gray700: "#606060",
+  pink: "#FFE9E3",
 };
 
 export const lightColors: Colors = {

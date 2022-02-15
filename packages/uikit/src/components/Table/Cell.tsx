@@ -1,17 +1,45 @@
 import styled from "styled-components";
-import { typography, TypographyProps } from "styled-system";
+import { background, typography, TypographyProps , variant} from "styled-system";
 
-export const Td = styled.td<TypographyProps>`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
+import {additionalColors} from "../../theme/colors"
+
+
+const Styles = {
+  primary: {
+    backgroundColor: additionalColors.pink
+  },
+  second: {
+    backgroundColor: additionalColors.cyan
+  },
+  third: {
+    backgroundColor: additionalColors.green
+  },
+  transparent: {
+    backgroundColor: "transparent"
+  }
+}
+
+export const Td = styled.td<CellProps>`
   color: ${({ theme }) => theme.colors.text};
-  padding: 16px;
+  padding: 20px;
   vertical-align: middle;
-
+  text-align: center;
+  text-transform: uppercase;
+  width: ${props=> props.width};
+  background-color: ${additionalColors.pink};
+  border: 1px solid;
+  ${variant({
+    variants: Styles,
+  })}
   ${typography}
 `;
-
 export const Th = styled(Td).attrs({ as: "th" })`
-  color: ${({ theme }) => theme.colors.secondary};
-  font-size: 12px;
+  font-size: 25px;
   text-transform: uppercase;
+  text-align: center;
 `;
+
+interface CellProps extends TypographyProps{
+  variant?: string;
+  width?: string;
+}
