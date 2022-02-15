@@ -2,6 +2,8 @@ import React from "react";
 import IconComponent from "../Svg/IconComponent";
 import { Toggle } from "../Toggle";
 import {IconButton} from "../Button";
+import styled from "styled-components";
+import {SunIcon,MoonIcon} from "../Svg";
 export interface Props {
   isDark: boolean;
   toggleTheme: (isDark: boolean) => void;
@@ -20,9 +22,14 @@ export interface Props {
 //   />
 // );
 
-const ThemeSwitcher: React.FC<Props> = ({ isDark, toggleTheme }) => (
-<IconButton variant="secondary" onClick={toggleTheme(!isDark)}>
-  {isDark ? <IconComponent iconName="Sun"/> : <IconComponent iconName="Moon"/>}
-</IconButton>
-);
+const StyledIconButton = styled(IconButton)`
+  background: transparent;
+  border: none;
+`
+
+const ThemeSwitcher: React.FC<Props> = ({ isDark, toggleTheme }) => {
+return  <StyledIconButton onClick={toggleTheme(!isDark)}>
+  {isDark?<SunIcon/>:<MoonIcon/>}
+</StyledIconButton>
+};
 export default React.memo(ThemeSwitcher, (prev, next) => prev.isDark === next.isDark);
