@@ -1,6 +1,6 @@
 import { scales, variants } from "./types";
 import { additionalColors } from "../../theme/colors";
-
+import styled, { DefaultTheme } from "styled-components";
 export const scaleVariants = {
   [scales.MD]: {
     height: "48px",
@@ -30,19 +30,28 @@ export const styleVariants = {
     borderRadius: "25px",
   },
   [variants.SECONDARY]: {
-    backgroundColor: additionalColors.yellow300,
+    backgroundColor: "transparent",
     border: "1px solid black",
     boxShadow: "none",
-    color: "primary",
+    fontFamily: "Orator Std",
+    fontSize: "18px",
+    fontStyle: "normal",
+    fontWeight: "500",
+    color: "black",
     borderRadius: "25px",
     ":disabled": {
       backgroundColor: "transparent",
     },
   },
   [variants.TERTIARY]: {
-    backgroundColor: "tertiary",
+    backgroundColor: additionalColors.cyan,
     boxShadow: "none",
-    color: "primary",
+    color: "black",
+    fontFamily: "Orator Std",
+    fontSize: "18px",
+    fontWeight: "500",
+    fontStyle: "normal",
+    borderRadius: "25px",
   },
   [variants.SUBTLE]: {
     backgroundColor: additionalColors.cyan,
