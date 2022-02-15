@@ -1,23 +1,22 @@
 import styled from "styled-components";
-import { background, typography, TypographyProps , variant} from "styled-system";
+import { background, typography, TypographyProps, variant } from "styled-system";
 
-import {additionalColors} from "../../theme/colors"
-
+import { additionalColors } from "../../theme/colors";
 
 const Styles = {
   primary: {
-    backgroundColor: additionalColors.pink
+    backgroundColor: additionalColors.pink,
   },
   second: {
-    backgroundColor: additionalColors.cyan
+    backgroundColor: additionalColors.cyan,
   },
   third: {
-    backgroundColor: additionalColors.green
+    backgroundColor: additionalColors.green,
   },
   transparent: {
-    backgroundColor: "transparent"
-  }
-}
+    backgroundColor: "transparent",
+  },
+};
 
 export const Td = styled.td<CellProps>`
   color: ${({ theme }) => theme.colors.text};
@@ -25,7 +24,7 @@ export const Td = styled.td<CellProps>`
   vertical-align: middle;
   text-align: center;
   text-transform: uppercase;
-  width: ${props=> props.width};
+  width: ${(props) => props.width} !important;
   background-color: ${additionalColors.pink};
   border: 1px solid;
   ${variant({
@@ -39,7 +38,7 @@ export const Th = styled(Td).attrs({ as: "th" })`
   text-align: center;
 `;
 
-interface CellProps extends TypographyProps{
+interface CellProps extends TypographyProps {
   variant?: string;
   width?: string;
 }
