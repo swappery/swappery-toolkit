@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.6 (2022-02-18)
+
+
+
+## 1.0.2 (2022-02-13)
+
+**Note:** Version bump only for package @swappery/uikit
+
+
+
+
+
+
 ## [0.63.1](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/compare/@pancakeswap/uikit@0.63.0...@pancakeswap/uikit@0.63.1) (2022-01-16)
 
 

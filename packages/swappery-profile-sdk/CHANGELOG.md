@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.1 (2022-02-18)
+
+**Note:** Version bump only for package @swappery/profile-sdk
+
+
+
+
+
+
 # [0.3.0](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-profile-sdk/compare/@pancakeswap/profile-sdk@0.2.0...@pancakeswap/profile-sdk@0.3.0) (2021-07-15)
 
 
