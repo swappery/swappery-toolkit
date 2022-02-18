@@ -26,7 +26,7 @@ export const Td = styled.td<CellProps>`
   text-transform: uppercase;
   width: ${(props) => props.width} !important;
   background-color: ${additionalColors.pink};
-  border: 1px solid;
+  border: 0.5px solid;
   ${variant({
     variants: Styles,
   })}

@@ -4,7 +4,7 @@ import Text from "../Text/Text";
 import bunnyHeadMain from "./svg/bunnyhead-main.svg";
 import bunnyHeadMax from "./svg/bunnyhead-max.svg";
 import bunnyButt from "./svg/bunnybutt.svg";
-
+import pointer from "./svg/pointer.svg";
 interface SliderLabelProps {
   progress: string;
 }
@@ -23,7 +23,7 @@ const getCursorStyle = ({ disabled = false }: DisabledProp) => {
 
 const getBaseThumbStyles = ({ isMax, disabled }: StyledInputProps) => `
   -webkit-appearance: none;
-  background-image: url(${isMax ? bunnyHeadMax : bunnyHeadMain});
+  background-image: url(${isMax ? bunnyHeadMax : pointer});
   background-color: transparent;
   box-shadow: none;
   border: 0;
