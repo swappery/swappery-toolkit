@@ -1,6 +1,6 @@
 import { scales, variants } from "./types";
 import { additionalColors } from "../../theme/colors";
-import styled, { DefaultTheme } from "styled-components";
+
 export const scaleVariants = {
   [scales.MD]: {
     height: "48px",
@@ -37,7 +37,7 @@ export const styleVariants = {
     fontSize: "18px",
     fontStyle: "normal",
     fontWeight: "500",
-    color: "black",
+    color: "text",
     borderRadius: "25px",
     ":disabled": {
       backgroundColor: "transparent",

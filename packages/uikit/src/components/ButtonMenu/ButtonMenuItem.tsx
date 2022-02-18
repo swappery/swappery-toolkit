@@ -1,5 +1,5 @@
 import React from "react";
-import styled, {DefaultTheme} from "styled-components";
+import styled, { DefaultTheme } from "styled-components";
 import { PolymorphicComponent } from "../../util/polymorphic";
 import Button from "../Button/Button";
 import { BaseButtonProps, variants } from "../Button/types";
@@ -26,7 +26,7 @@ const MenuButton = styled(Button)<BaseButtonProps>`
   padding: 0 15px;
   border: 1px solid;
   border-radius: 50%;
-  border-color: ${({theme})=>theme.colors.border};
+  border-color: ${({ theme }) => theme.colors.border};
   background-color: ${additionalColors.cyan};
   color: black;
   font-size: 14px;

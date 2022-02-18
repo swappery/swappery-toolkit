@@ -8,11 +8,11 @@ interface StyledCardProps extends CardProps {
 }
 
 export const StyledCard = styled.div<StyledCardProps>`
-  background: ${({ theme }) => theme.colors.cardBorder};
+  background: ${({ theme }) => theme.colors.backgroundAlt};
   color: ${({ theme }) => theme.colors.text};
   overflow: hidden;
   position: relative;
-
+  border: 1px solid ${({ theme }) => theme.colors.border};
   padding: 1px 1px 1px 1px;
 
   ${space}

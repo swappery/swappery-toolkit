@@ -12,7 +12,6 @@ import CakePrice from "../../components/CakePrice/CakePrice";
 // import Logo from "./components/Logo";
 import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_MOBILE } from "./config";
 import { NavProps } from "./types";
-import LangSelector from "../../components/LangSelector/LangSelector";
 import { MenuContext } from "./context";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
 
@@ -28,7 +27,7 @@ const StyledNav = styled.nav`
   width: 100%;
   height: ${MENU_HEIGHT}px;
   background-color: ${({ theme }) => theme.nav.background};
-  border-bottom: 0.5px solid ${({ theme }) => theme.colors.black};
+  border-bottom: 0.5px solid ${({ theme }) => theme.colors.border};
   transform: translate3d(0, 0, 0);
 `;
 
@@ -65,8 +64,7 @@ const Logo = styled.a<{ width: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 0.5px solid black;
-  border-bottom: 0.5px solid black;
+  border-right: 0.5px solid ${({ theme }) => theme.colors.border};
   width: ${({ width }) => width};
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.logoBackground};
@@ -80,8 +78,7 @@ const MenuItemsWrapper = styled(MenuItems)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  border-right: 0.5px solid ${({ theme }) => theme.colors.border};
   padding-right: 2rem;
   padding-left: 2rem;
   background-color: ${({ theme }) => theme.colors.navBarBackground};
@@ -145,9 +142,6 @@ const Menu: React.FC<NavProps> = ({
     };
   }, [totalTopMenuHeight]);
 
-  // Find the home link if provided
-  const homeLink = links.find((link) => link.label === "Home");
-
   const subLinksWithoutMobile = subLinks?.filter((subLink) => !subLink.isMobileOnly);
   const subLinksMobileOnly = subLinks?.filter((subLink) => subLink.isMobileOnly);
 
@@ -157,7 +151,7 @@ const Menu: React.FC<NavProps> = ({
         <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
           {banner && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
           <StyledNav>
-            <Flex width="67%">
+            <Flex width="67%" height="100%">
               {/* <Logo isDark={isDark} href={homeLink?.href ?? "/"} /> */}
               <Logo width="50%" href="/">
                 THE SWAPPERY

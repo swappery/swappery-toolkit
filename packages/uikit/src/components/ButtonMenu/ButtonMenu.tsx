@@ -8,7 +8,6 @@ interface StyledButtonMenuProps extends ButtonMenuProps {
   theme: DefaultTheme;
 }
 
-
 const getBorderColor = ({ theme }: StyledButtonMenuProps) => {
   return theme.colors.border;
 };

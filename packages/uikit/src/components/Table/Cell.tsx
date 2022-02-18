@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { background, typography, TypographyProps, variant } from "styled-system";
+import { typography, TypographyProps, variant } from "styled-system";
 
 import { additionalColors } from "../../theme/colors";
 
@@ -13,20 +13,17 @@ const Styles = {
   third: {
     backgroundColor: additionalColors.green,
   },
-  transparent: {
-    backgroundColor: "transparent",
-  },
 };
 
 export const Td = styled.td<CellProps>`
-  color: ${({ theme }) => theme.colors.text};
+  color: #000;
   padding: 20px;
   vertical-align: middle;
   text-align: center;
   text-transform: uppercase;
   width: ${(props) => props.width} !important;
-  background-color: ${additionalColors.pink};
-  border: 0.5px solid;
+  background-color: ${({ theme }) => theme.colors.background};
+  border: 0.5px solid ${({ theme }) => theme.colors.border};
   ${variant({
     variants: Styles,
   })}

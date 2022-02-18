@@ -14,7 +14,6 @@ const Icon: React.FC<SvgProps> = (props) => {
         fill="#FFF8D4"
       />
     </Svg>
-    
   );
 };
 
