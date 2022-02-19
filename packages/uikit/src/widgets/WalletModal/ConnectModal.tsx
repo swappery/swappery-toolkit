@@ -57,7 +57,7 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, displayC
 
   return (
     <ModalContainer minWidth="320px">
-      <ModalHeader background={getThemeValue("colors.gradients.bubblegum")(theme)}>
+      <ModalHeader background={getThemeValue("colors.backgroundAlt")(theme)}>
         <ModalTitle>
           <Heading>{t("Connect Wallet")}</Heading>
         </ModalTitle>
@@ -81,7 +81,7 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, displayC
           <Button
             as="a"
             href="https://docs.pancakeswap.finance/get-started/connection-guide"
-            variant="subtle"
+            variant="primary"
             width="100%"
             {...getExternalLinkProps()}
           >

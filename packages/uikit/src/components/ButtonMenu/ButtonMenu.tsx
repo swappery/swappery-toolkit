@@ -3,7 +3,7 @@ import styled, { DefaultTheme } from "styled-components";
 import { space } from "styled-system";
 import { scales, variants } from "../Button/types";
 import { ButtonMenuProps } from "./types";
-import { additionalColors } from "../../theme/colors";
+
 interface StyledButtonMenuProps extends ButtonMenuProps {
   theme: DefaultTheme;
 }

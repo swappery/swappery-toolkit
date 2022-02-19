@@ -1,20 +1,17 @@
 import React from "react";
-import styled, { DefaultTheme } from "styled-components";
+import styled from "styled-components";
 import { PolymorphicComponent } from "../../util/polymorphic";
 import Button from "../Button/Button";
 import { BaseButtonProps, variants } from "../Button/types";
 import { ButtonMenuItemProps } from "./types";
 import { additionalColors } from "../../theme/colors";
 
-interface ThemedButtonProps extends BaseButtonProps {
-  theme: DefaultTheme;
-}
 interface InactiveButtonProps extends BaseButtonProps {
   forwardedAs: BaseButtonProps["as"];
 }
 const InactiveButton: PolymorphicComponent<InactiveButtonProps, "button"> = styled(Button)<InactiveButtonProps>`
   background-color: transparent;
-  color: ${({ theme, variant }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   &:hover:not(:disabled):not(:active) {
     background-color: transparent;
   }
@@ -23,9 +20,9 @@ const InactiveButton: PolymorphicComponent<InactiveButtonProps, "button"> = styl
   padding: 0 15px;
 `;
 const MenuButton = styled(Button)<BaseButtonProps>`
-  padding: 0 15px;
+  padding: 15px 15px;
   border: 1px solid;
-  border-radius: 50%;
+  border-radius: 100%;
   border-color: ${({ theme }) => theme.colors.border};
   background-color: ${additionalColors.cyan};
   color: black;

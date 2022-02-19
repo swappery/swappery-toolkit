@@ -3,7 +3,6 @@ import styled from "styled-components";
 import getExternalLinkProps from "../../util/getExternalLinkProps";
 import Text from "../Text/Text";
 import { LinkProps } from "./types";
-import { additionalColors } from "../../theme/colors";
 
 const StyledLink = styled(Text)<LinkProps>`
   display: flex;
@@ -20,7 +19,7 @@ const Link: React.FC<LinkProps> = ({ external, ...props }) => {
 };
 
 Link.defaultProps = {
-  color: additionalColors.yellow300,
+  color: "#000",
 };
 
 export default Link;

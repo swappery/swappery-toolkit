@@ -8,7 +8,7 @@ import Footer from "../../components/Footer";
 import MenuItems from "../../components/MenuItems/MenuItems";
 import { SubMenuItems } from "../../components/SubMenuItems";
 import { useMatchBreakpoints } from "../../hooks";
-import CakePrice from "../../components/CakePrice/CakePrice";
+import { SwprPrice } from "../../components/SwprPrice";
 // import Logo from "./components/Logo";
 import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_MOBILE } from "./config";
 import { NavProps } from "./types";
@@ -97,7 +97,7 @@ const Menu: React.FC<NavProps> = ({
   banner,
   isDark,
   toggleTheme,
-  cakePriceUsd,
+  swprPriceUsd,
   links,
   subLinks,
   footerLinks,
@@ -160,10 +160,10 @@ const Menu: React.FC<NavProps> = ({
                 <MenuItemsWrapper items={links} activeItem={activeItem} activeSubItem={activeSubItem} width="50%" />
               )}
             </Flex>
-            <UserMenu alignItems="center" height="100%" width="33%">
+            <UserMenu alignItems="center" justifyContent="space-between" height="100%" width="33%">
               {userMenu}
               <Box mr="12px">
-                <CakePrice cakePriceUsd={cakePriceUsd} />
+                <SwprPrice swprPriceUsd={swprPriceUsd} />
               </Box>
               <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
             </UserMenu>
