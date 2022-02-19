@@ -42,5 +42,9 @@
     "jest": "^26.6.3",
     "rollup": "^2.47.0",
     "ts-jest": "^26.5.6"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "7b732d54d2c788c6913d599aee504f20815698b3"
 }
