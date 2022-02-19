@@ -1,6 +1,6 @@
-# eslint-config-pancake
+# eslint-config-swappery
 
-Pancake Eslint config with:
+Swappery Eslint config with:
 
 - Airbnb config
 - Typescript
@@ -9,7 +9,7 @@ Pancake Eslint config with:
 ## Usage
 
 ```
-npx install-peerdeps --dev @pancakeswap/eslint-config-pancake
+npx install-peerdeps --dev @swappery/eslint-config-swappery
 ```
 
-Add `"extends": "@pancakeswap/eslint-config-pancake"` to your eslint config file.
+Add `"extends": "@swappery/eslint-config-swappery"` to your eslint config file.

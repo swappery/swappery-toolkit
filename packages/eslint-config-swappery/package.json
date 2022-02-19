@@ -1,15 +1,14 @@
 {
-  "name": "@swappery/eslint-config-pancake",
+  "name": "@swappery/eslint-config-swappery",
   "version": "1.2.2",
-  "description": "Eslint config for PancakeSwap",
+  "description": "Eslint config for Swappery",
   "main": "lib/index.js",
   "files": [
     "lib"
   ],
-  "repository": "https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/eslint-config-pancake",
+  "repository": "https://github.com/swappery/swappery-toolkit/tree/main/packages/token-lists",
   "license": "MIT",
-  "author": "RabbitDoge",
-  "private": false,
+  "author": "ryo.kanazawa34",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
@@ -27,5 +26,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "90b85a3010be561c2a36ace1e4fcd8ba9d971bcb"
+  "gitHead": "bfc445d246797ec7bc39f202b5446e37038f73fc"
 }
