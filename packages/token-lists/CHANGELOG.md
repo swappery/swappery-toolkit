@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.2](https://github.com/swappery/swappery-toolkit/compare/@swappery/token-lists@2.27.1...@swappery/token-lists@2.27.2) (2022-02-19)
+
+
+### Bug Fixes
+
+* Change eslint and some errors ([ce0940f](https://github.com/swappery/swappery-toolkit/commit/ce0940f56c88a518a3e1829cb50bc70858078a5a))
+
+
+
+
+
 ## 2.27.1 (2022-02-18)
 
 **Note:** Version bump only for package @swappery/token-lists

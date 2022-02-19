@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.3](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-profile-sdk/compare/@swappery/profile-sdk@0.3.2...@swappery/profile-sdk@0.3.3) (2022-02-19)
+
+
+### Bug Fixes
+
+* Change eslint and some errors ([ce0940f](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-profile-sdk/commit/ce0940f56c88a518a3e1829cb50bc70858078a5a))
+
+
+
+
+
 ## [0.3.2](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-profile-sdk/compare/@swappery/profile-sdk@0.3.1...@swappery/profile-sdk@0.3.2) (2022-02-19)
 
 **Note:** Version bump only for package @swappery/profile-sdk
