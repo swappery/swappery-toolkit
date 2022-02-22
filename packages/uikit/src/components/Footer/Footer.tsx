@@ -9,6 +9,7 @@ import { FooterProps } from "./types";
 const StyledLink = styled(Link)<FlexProps>`
   font-weight: 400;
   font-size: 15px;
+  color: ${({ theme }) => theme.colors.yellow300};
 `;
 
 const StyledFlex = styled(Flex)`
