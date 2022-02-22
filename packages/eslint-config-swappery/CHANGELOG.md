@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/swappery/swappery-toolkit/tree/main/packages/token-lists/compare/@swappery/eslint-config-swappery@1.2.3...@swappery/eslint-config-swappery@1.3.0) (2022-02-22)
+
+
+### Features
+
+* Upate version ([8b1be57](https://github.com/swappery/swappery-toolkit/tree/main/packages/token-lists/commit/8b1be57ace8025b3e356f75f0ab6e7f0130d9560))
+
+
+
+
+
 ## 1.2.3 (2022-02-19)
 
 

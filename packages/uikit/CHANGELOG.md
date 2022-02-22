@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.0.8...@swappery/uikit@1.1.0) (2022-02-22)
+
+
+### Features
+
+* Export Footer to marketing landing page ([3fc2f23](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/commit/3fc2f232cfd9473dfc3ef7617345e1d254ce42b2))
+* Upate version ([8b1be57](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/commit/8b1be57ace8025b3e356f75f0ab6e7f0130d9560))
+
+
+
+
+
 ## [1.0.8](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.0.7...@swappery/uikit@1.0.8) (2022-02-19)
 
 
