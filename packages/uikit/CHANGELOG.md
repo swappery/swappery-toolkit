@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.1.0...@swappery/uikit@1.1.1) (2022-03-01)
+
+
+### Bug Fixes
+
+* Fix button and footer ([b99f904](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/commit/b99f904bc3fb75301460295dbc0d01fb049318a9))
+
+
+
+
+
 # [1.1.0](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.0.8...@swappery/uikit@1.1.0) (2022-02-22)
 
 
