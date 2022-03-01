@@ -27,7 +27,7 @@ const MenuItem: React.FC<FooterProps> = () => {
       <StyledLink href="/" width="20%">
         © {new Date().getFullYear()} TheSwappery
       </StyledLink>
-      <StyledFlex>
+      <StyledFlex justifyContent="center" alignItems="center">
         <StyledLink href="/documentation">Documentation</StyledLink>
         <StyledLink href="/audit">Audit</StyledLink>
       </StyledFlex>

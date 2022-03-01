@@ -31,7 +31,8 @@ export const styleVariants = {
   },
   [variants.SECONDARY]: {
     backgroundColor: "transparent",
-    border: "1px solid black",
+    border: "1px solid",
+    borderColor: "text",
     boxShadow: "none",
     fontFamily: "Orator-Std",
     fontSize: "18px",
