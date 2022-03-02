@@ -13,7 +13,22 @@ const StyledLink = styled(Link)<FlexProps>`
 `;
 
 const StyledFlex = styled(Flex)`
-  gap: 4rem;
+  gap: 4px;
+  ${({ theme }) => theme.mediaQueries.md} {
+    gap: 4rem;
+  }
+`;
+
+const FooterContainer = styled(Flex)`
+  align-items: center;
+  width: 100%;
+  gap: 4px;
+  justify-content: center;
+  flex-direction: column-reverse;
+  ${({ theme }) => theme.mediaQueries.md} {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const MenuItem: React.FC<FooterProps> = () => {
@@ -24,14 +39,16 @@ const MenuItem: React.FC<FooterProps> = () => {
       justifyContent="space-between"
       alignItems="center"
     >
-      <StyledLink href="/" width="20%">
-        © {new Date().getFullYear()} TheSwappery
-      </StyledLink>
-      <StyledFlex justifyContent="center" alignItems="center">
-        <StyledLink href="/documentation">Documentation</StyledLink>
-        <StyledLink href="/audit">Audit</StyledLink>
-      </StyledFlex>
-      <StyledSocialLinks order={[2]} width="20%" />
+      <FooterContainer>
+        <StyledLink href="/" width="20%">
+          © {new Date().getFullYear()} TheSwappery
+        </StyledLink>
+        <StyledFlex justifyContent="center" alignItems="center" flexDirection={["column-reverse", null, null, "row"]}>
+          <StyledLink href="/documentation">Documentation</StyledLink>
+          <StyledLink href="/audit">Audit</StyledLink>
+        </StyledFlex>
+        <StyledSocialLinks order={[2]} width="20%" />
+      </FooterContainer>
     </StyledFooter>
   );
 };

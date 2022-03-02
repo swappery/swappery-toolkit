@@ -4,7 +4,7 @@ import styled from "styled-components";
 import BottomNav from "../../components/BottomNav";
 import { Box, FlexProps } from "../../components/Box";
 import Flex from "../../components/Box/Flex";
-import Footer from "../../components/Footer";
+import { Footer } from "../../components/Footer";
 import MenuItems from "../../components/MenuItems/MenuItems";
 import { SubMenuItems } from "../../components/SubMenuItems";
 import { useMatchBreakpoints } from "../../hooks";
@@ -14,6 +14,7 @@ import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_M
 import { NavProps } from "./types";
 import { MenuContext } from "./context";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
+import { Button } from "../../components/Button";
 
 const Wrapper = styled.div`
   position: relative;
@@ -31,12 +32,10 @@ const StyledNav = styled.nav`
   transform: translate3d(0, 0, 0);
 `;
 
-const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
+const FixedContainer = styled.div`
   position: fixed;
-  top: ${({ showMenu, height }) => (showMenu ? 0 : `-${height}px`)};
   left: 0;
   transition: top 0.2s;
-  height: ${({ height }) => `${height}px`};
   width: 100%;
   z-index: 20;
 `;
@@ -91,6 +90,45 @@ const UserMenu = styled(Flex)<FlexProps>`
   background-color: ${({ theme }) => theme.colors.navBarBackground};
 `;
 
+const MobileMenu = styled(Flex)`
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.navBarBackground};
+  width: 100%;
+  border-right: 0.5px solid ${({ theme }) => theme.colors.border};
+`;
+
+const ShowMobileMenuButton = styled.button`
+  background-color: ${({ theme }) => theme.colors.yellow300};
+  border: none;
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+  &:hover,
+  &:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em ${({ theme }) => theme.colors.cyan};
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+`;
+
+const MobileMenuItemsWrapper = styled(MenuItems)<{ menuHeight: number; showMenu: boolean }>`
+  position: fixed;
+  top: ${({ menuHeight }) => `${menuHeight}px`};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 0.5px solid ${({ theme }) => theme.colors.border};
+  border-top: 0px;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  background-color: ${({ theme }) => theme.colors.navBarBackground};
+  z-index: 10;
+`;
+
 const Menu: React.FC<NavProps> = ({
   userMenu,
   linkComponent = "a",
@@ -106,41 +144,11 @@ const Menu: React.FC<NavProps> = ({
   children,
 }) => {
   const { isMobile } = useMatchBreakpoints();
-  const [showMenu, setShowMenu] = useState(true);
-  const refPrevOffset = useRef(typeof window === "undefined" ? 0 : window.pageYOffset);
+  const [showMobileMenu, setShowMobileMenu] = useState(true);
 
   const topBannerHeight = isMobile ? TOP_BANNER_HEIGHT_MOBILE : TOP_BANNER_HEIGHT;
 
-  const totalTopMenuHeight = banner ? MENU_HEIGHT + topBannerHeight : MENU_HEIGHT;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentOffset = window.pageYOffset;
-      const isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
-      const isTopOfPage = currentOffset === 0;
-      // Always show the menu when user reach the top
-      if (isTopOfPage) {
-        setShowMenu(true);
-      }
-      // Avoid triggering anything at the bottom because of layout shift
-      else if (!isBottomOfPage) {
-        if (currentOffset < refPrevOffset.current || currentOffset <= totalTopMenuHeight) {
-          // Has scroll up
-          setShowMenu(true);
-        } else {
-          // Has scroll down
-          setShowMenu(false);
-        }
-      }
-      refPrevOffset.current = currentOffset;
-    };
-    const throttledHandleScroll = throttle(handleScroll, 200);
-
-    window.addEventListener("scroll", throttledHandleScroll);
-    return () => {
-      window.removeEventListener("scroll", throttledHandleScroll);
-    };
-  }, [totalTopMenuHeight]);
+  const totalTopMenuHeight = MENU_HEIGHT;
 
   const subLinksWithoutMobile = subLinks?.filter((subLink) => !subLink.isMobileOnly);
   const subLinksMobileOnly = subLinks?.filter((subLink) => subLink.isMobileOnly);
@@ -148,20 +156,31 @@ const Menu: React.FC<NavProps> = ({
   return (
     <MenuContext.Provider value={{ linkComponent }}>
       <Wrapper>
-        <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
+        <FixedContainer>
           {banner && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
           <StyledNav>
-            <Flex width="67%" height="100%">
-              {/* <Logo isDark={isDark} href={homeLink?.href ?? "/"} /> */}
-              <Logo width="50%" href="/">
-                THE SWAPPERY
-              </Logo>
-              {!isMobile && (
-                <MenuItemsWrapper items={links} activeItem={activeItem} activeSubItem={activeSubItem} width="50%" />
+            <Flex width={["50%", null, null, "67%"]} height="100%">
+              {isMobile ? (
+                <MobileMenu>
+                  <ShowMobileMenuButton onClick={() => setShowMobileMenu(!showMobileMenu)}> | | |</ShowMobileMenuButton>
+                  {userMenu}
+                </MobileMenu>
+              ) : (
+                <>
+                  <Logo width="50%" href="/">
+                    THE SWAPPERY
+                  </Logo>
+                  <MenuItemsWrapper items={links} activeItem={activeItem} activeSubItem={activeSubItem} width="50%" />
+                </>
               )}
             </Flex>
-            <UserMenu alignItems="center" justifyContent="space-between" height="100%" width="33%">
-              {userMenu}
+            <UserMenu
+              alignItems="center"
+              justifyContent="space-between"
+              height="100%"
+              width={["50%", null, null, "33%"]}
+            >
+              {!isMobile && userMenu}
               <Box mr="12px">
                 <SwprPrice swprPriceUsd={swprPriceUsd} />
               </Box>
@@ -169,6 +188,17 @@ const Menu: React.FC<NavProps> = ({
             </UserMenu>
           </StyledNav>
         </FixedContainer>
+        {isMobile && showMobileMenu && (
+          <MobileMenuItemsWrapper
+            menuHeight={totalTopMenuHeight}
+            showMenu={showMobileMenu}
+            items={links}
+            activeItem={activeItem}
+            activeSubItem={activeSubItem}
+            width="100%"
+          />
+        )}
+
         {subLinks && (
           <Flex justifyContent="space-around">
             <SubMenuItems items={subLinksWithoutMobile} mt={`${totalTopMenuHeight + 1}px`} activeItem={activeSubItem} />
@@ -184,12 +214,11 @@ const Menu: React.FC<NavProps> = ({
           </Flex>
         )}
         <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "0"}>
-          <Inner isPushed={false} showMenu={showMenu}>
+          <Inner isPushed={false} showMenu={showMobileMenu}>
             {children}
             <Footer items={footerLinks} mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]} />
           </Inner>
         </BodyWrapper>
-        {isMobile && <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />}
       </Wrapper>
     </MenuContext.Provider>
   );

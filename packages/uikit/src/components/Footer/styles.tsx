@@ -52,7 +52,10 @@ export const StyledToolsContainer = styled(Flex)`
 
 export const StyledSocialLinks = styled(SocialLinks)`
   align-items: center;
-  justify-content: right;
+  justify-content: center;
+  ${({ theme }) => theme.mediaQueries.md} {
+    justify-content: right;
+  }
 `;
 
 export const StyledText = styled.span`
