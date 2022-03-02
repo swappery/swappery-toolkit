@@ -35,6 +35,7 @@ const StyledNav = styled.nav`
 const FixedContainer = styled.div`
   position: fixed;
   left: 0;
+  top: 0;
   transition: top 0.2s;
   width: 100%;
   z-index: 20;
@@ -162,7 +163,7 @@ const Menu: React.FC<NavProps> = ({
             <Flex width={["50%", null, null, "67%"]} height="100%">
               {isMobile ? (
                 <MobileMenu>
-                  <ShowMobileMenuButton onClick={() => setShowMobileMenu(!showMobileMenu)}> | | |</ShowMobileMenuButton>
+                  <ShowMobileMenuButton onClick={() => setShowMobileMenu(!showMobileMenu)}> |||</ShowMobileMenuButton>
                   {userMenu}
                 </MobileMenu>
               ) : (
