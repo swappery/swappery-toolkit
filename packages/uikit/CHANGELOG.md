@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.1.2...@swappery/uikit@1.1.3) (2022-03-02)
+
+
+### Bug Fixes
+
+* Fix menu homepage margin ([77ce54a](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/commit/77ce54a822275f54b6268552f87cd17107f458a2))
+* Remove wallet connect doc ([eccdd8c](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/commit/eccdd8cd297cd6db0df2ba28da85d0cc5f15319b))
+
+
+
+
+
 ## [1.1.2](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.1.1...@swappery/uikit@1.1.2) (2022-03-02)
 
 
