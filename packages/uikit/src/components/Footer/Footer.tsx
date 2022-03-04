@@ -10,7 +10,6 @@ const StyledLink = styled(Link)<FlexProps>`
   font-weight: 400;
   font-size: 15px;
   color: ${({ theme }) => theme.colors.yellow300};
-  width: 100%;
   ${({ theme }) => theme.mediaQueries.md} {
     width: 33%;
   }
@@ -44,16 +43,18 @@ const MenuItem: React.FC<FooterProps> = () => {
       alignItems="center"
     >
       <FooterContainer>
-        <StyledLink href="/" width={["100%", null, null, "33%"]}>
-          © {new Date().getFullYear()} TheSwappery
-        </StyledLink>
+        <StyledLink href="/">© {new Date().getFullYear()} TheSwappery</StyledLink>
         <StyledFlex
           justifyContent="space-between"
           alignItems="center"
           flexDirection={["column-reverse", null, null, "row"]}
         >
-          <StyledLink href="/documentation">Documentation</StyledLink>
-          <StyledLink href="/audit">Audit</StyledLink>
+          <StyledLink external href="/documentation">
+            Documentation
+          </StyledLink>
+          <StyledLink external href="/audit">
+            Audit
+          </StyledLink>
         </StyledFlex>
         <StyledSocialLinks order={[2]} width={["100%", null, null, "33%"]} />
       </FooterContainer>
