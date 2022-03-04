@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.1.4...@swappery/uikit@1.1.5) (2022-03-04)
+
+
+### Bug Fixes
+
+* Remove unusued wallet and Fix footer style ([b697d3d](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/commit/b697d3dbe5ea5ee3b9db9b873596bd20c7dfc3ca))
+
+
+
+
+
 ## [1.1.4](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.1.3...@swappery/uikit@1.1.4) (2022-03-03)
 
 **Note:** Version bump only for package @swappery/uikit
