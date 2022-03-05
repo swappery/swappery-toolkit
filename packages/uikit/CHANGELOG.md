@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.1.5...@swappery/uikit@1.1.6) (2022-03-05)
+
+**Note:** Version bump only for package @swappery/uikit
+
+
+
+
+
 ## [1.1.5](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.1.4...@swappery/uikit@1.1.5) (2022-03-04)
 
 
