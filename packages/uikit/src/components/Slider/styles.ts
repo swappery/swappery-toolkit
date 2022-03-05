@@ -4,7 +4,6 @@ import Text from "../Text/Text";
 import bunnyHeadMain from "./svg/bunnyhead-main.svg";
 import bunnyHeadMax from "./svg/bunnyhead-max.svg";
 import bunnyButt from "./svg/bunnybutt.svg";
-import pointer from "./svg/pointer.svg";
 interface SliderLabelProps {
   progress: string;
 }
@@ -23,7 +22,12 @@ const getCursorStyle = ({ disabled = false }: DisabledProp) => {
 
 const getBaseThumbStyles = ({ isMax, disabled }: StyledInputProps) => `
   -webkit-appearance: none;
-  background-image: url(${isMax ? bunnyHeadMax : pointer});
+  background: url(${isMax ? bunnyHeadMax : ""}) no-repeat;
+  transform: ;
+  -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
   background-color: transparent;
   box-shadow: none;
   border: 0;
@@ -31,11 +35,13 @@ const getBaseThumbStyles = ({ isMax, disabled }: StyledInputProps) => `
   width: 24px;
   height: 32px;
   filter: ${disabled ? "grayscale(100%)" : "none"};
-  transform: translate(-2px, -2px);
+  transform:  translate(3px, 6px) rotate(90deg);
   transition: 200ms transform;
 
   &:hover {
-    transform: ${disabled ? "scale(1) translate(-2px, -2px)" : "scale(1.1) translate(-3px, -3px)"};
+    transform: ${
+      disabled ? "scale(1) translate(3px, 6px) rotate(90deg)" : "scale(1.1) translate(3px, 6px) rotate(90deg)"
+    };
   }
 `;
 
@@ -96,7 +102,7 @@ export const BarBackground = styled.div<DisabledProp>`
 `;
 
 export const BarProgress = styled.div<DisabledProp>`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.cyan};
   filter: ${({ disabled }) => (disabled ? "grayscale(100%)" : "none")};
   height: 10px;
   position: absolute;

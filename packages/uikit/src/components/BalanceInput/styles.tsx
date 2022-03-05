@@ -30,10 +30,10 @@ export const StyledInput = styled(Input)<{ textAlign?: string }>`
   box-shadow: none;
   padding-left: 10px;
   padding-right: 0;
-  /* text-align: ${({ textAlign = "right" }) => textAlign}; */
   text-align: left;
   border: none;
 
+  color: #000;
   ::placeholder {
     color: ${({ theme }) => theme.colors.textSubtle};
   }
