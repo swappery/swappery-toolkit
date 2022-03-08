@@ -15,6 +15,8 @@ import { NavProps } from "./types";
 import { MenuContext } from "./context";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
 import { Button } from "../../components/Button";
+import tripleLineHorizontalIcon from "./components/TripleLineHorizontal.svg";
+import tripleLineVerticalIcon from "./components/TripleLineVertical.svg";
 
 const Wrapper = styled.div`
   position: relative;
@@ -32,11 +34,12 @@ const StyledNav = styled.nav`
   transform: translate3d(0, 0, 0);
 `;
 
-const FixedContainer = styled.div`
+const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
   position: fixed;
+  top: ${({ showMenu, height }) => (showMenu ? 0 : `-${height}px`)};
   left: 0;
-  top: 0;
   transition: top 0.2s;
+  height: ${({ height }) => `${height}px`};
   width: 100%;
   z-index: 20;
 `;
@@ -60,18 +63,19 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   max-width: 100%;
 `;
 
-const Logo = styled.a<{ width: string }>`
+const Logo = styled.a<{ isMobile: boolean; width: string; height: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 0.5px solid ${({ theme }) => theme.colors.border};
+  border-right: ${({ isMobile }) => (isMobile ? "0px" : "0.5px")} solid ${({ theme }) => theme.colors.border};
   width: ${({ width }) => width};
+  height: ${({ height }) => height};
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.logoBackground};
   padding-right: 2rem;
   padding-left: 2rem;
-  font-size: medium;
   font-weight: 600;
+  font-size: ${({ isMobile }) => (isMobile ? "36px" : "medium")};
 `;
 
 const MenuItemsWrapper = styled(MenuItems)`
@@ -101,6 +105,9 @@ const MobileMenu = styled(Flex)`
 `;
 
 const ShowMobileMenuButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${({ theme }) => theme.colors.yellow300};
   border: none;
   height: 40px;
@@ -145,30 +152,75 @@ const Menu: React.FC<NavProps> = ({
   children,
 }) => {
   const { isMobile } = useMatchBreakpoints();
-  const [showMobileMenu, setShowMobileMenu] = useState(true);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
+  const refPrevOffset = useRef(typeof window === "undefined" ? 0 : window.pageYOffset);
 
   const topBannerHeight = isMobile ? TOP_BANNER_HEIGHT_MOBILE : TOP_BANNER_HEIGHT;
 
-  const totalTopMenuHeight = MENU_HEIGHT;
+  const totalTopMenuHeight = MENU_HEIGHT + topBannerHeight;
 
   const subLinksWithoutMobile = subLinks?.filter((subLink) => !subLink.isMobileOnly);
   const subLinksMobileOnly = subLinks?.filter((subLink) => subLink.isMobileOnly);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentOffset = window.pageYOffset;
+      const isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
+      const isTopOfPage = currentOffset === 0;
+      // Always show the menu when user reach the top
+      if (isTopOfPage) {
+        setShowMenu(true);
+      }
+      // Avoid triggering anything at the bottom because of layout shift
+      else if (!isBottomOfPage) {
+        if (currentOffset < refPrevOffset.current || currentOffset <= totalTopMenuHeight) {
+          // Has scroll up
+          setShowMenu(true);
+        } else {
+          // Has scroll down
+          setShowMenu(false);
+          setShowMobileMenu(false);
+        }
+      }
+      refPrevOffset.current = currentOffset;
+    };
+    const throttledHandleScroll = throttle(handleScroll, 200);
+
+    window.addEventListener("scroll", throttledHandleScroll);
+    return () => {
+      window.removeEventListener("scroll", throttledHandleScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <MenuContext.Provider value={{ linkComponent }}>
       <Wrapper>
-        <FixedContainer>
-          {banner && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
+        <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
+          {isMobile && (
+            <TopBannerContainer height={topBannerHeight}>
+              <Logo isMobile={isMobile} width="100%" height={`${topBannerHeight}px`} href="/">
+                THE&nbsp;&nbsp;&nbsp;SWAPPERY
+              </Logo>
+            </TopBannerContainer>
+          )}
           <StyledNav>
             <Flex width={["50%", null, null, "67%"]} height="100%">
               {isMobile ? (
                 <MobileMenu>
-                  <ShowMobileMenuButton onClick={() => setShowMobileMenu(!showMobileMenu)}> |||</ShowMobileMenuButton>
+                  <ShowMobileMenuButton onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    {showMobileMenu ? (
+                      <img src={tripleLineHorizontalIcon} alt="Close" />
+                    ) : (
+                      <img src={tripleLineVerticalIcon} alt="Open" />
+                    )}
+                  </ShowMobileMenuButton>
                   {userMenu}
                 </MobileMenu>
               ) : (
                 <>
-                  <Logo width="50%" href="/">
+                  <Logo isMobile={isMobile} height="100%" width="50%" href="/">
                     THE SWAPPERY
                   </Logo>
                   <MenuItemsWrapper items={links} activeItem={activeItem} activeSubItem={activeSubItem} width="50%" />
