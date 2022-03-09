@@ -49,12 +49,12 @@ const MenuItem: React.FC<FooterProps> = () => {
           alignItems="center"
           flexDirection={["column-reverse", null, null, "row"]}
         >
-          <StyledLink external href="/documentation">
+          <StyledLink external href="https://the-swappery.gitbook.io/swapbook/">
             Documentation
           </StyledLink>
-          <StyledLink external href="/audit">
+          {/* <StyledLink external href="/audit">
             Audit
-          </StyledLink>
+          </StyledLink> */}
         </StyledFlex>
         <StyledSocialLinks order={[2]} width={["100%", null, null, "33%"]} />
       </FooterContainer>
