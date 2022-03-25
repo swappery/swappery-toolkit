@@ -1,6 +1,6 @@
 {
   "name": "@swappery/uikit",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "description": "First release",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -53,5 +53,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "7b732d54d2c788c6913d599aee504f20815698b3"
+  "gitHead": "d8669b1eed80ed0f4192972163e91d62daa3f750"
 }
