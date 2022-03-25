@@ -52,9 +52,9 @@ const MenuItem: React.FC<FooterProps> = () => {
           <StyledLink external href="https://the-swappery.gitbook.io/swapbook/">
             Documentation
           </StyledLink>
-          {/* <StyledLink external href="/audit">
+          <StyledLink external href="https://solidity.finance/audits/TheSwappery/">
             Audit
-          </StyledLink> */}
+          </StyledLink>
         </StyledFlex>
         <StyledSocialLinks order={[2]} width={["100%", null, null, "33%"]} />
       </FooterContainer>
