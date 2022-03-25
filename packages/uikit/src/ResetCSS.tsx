@@ -63,11 +63,6 @@ const ResetCSS = createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
-  * {
-    font-family: 'Kanit', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
   /* Number */
   input::-webkit-outer-spin-button,

@@ -27,7 +27,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
 
   color: ${({ theme }) => theme.colors.text};
   font-size: 16px;
-  font-family: "Gotham";
+  font-family: "Orator-Std";
   font-weight: ${({ $isActive }) => ($isActive ? "700" : "400")};
   ${({ $statusColor, theme }) =>
     $statusColor &&
