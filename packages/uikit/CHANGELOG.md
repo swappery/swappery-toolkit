@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.2.1...@swappery/uikit@1.2.2) (2022-05-04)
+
+
+### Bug Fixes
+
+* Swpr buton url ([2d8db9d](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/commit/2d8db9d0fc38a00ee170a792f2fceec27c15fc3c))
+
+
+
+
+
 ## [1.2.1](https://github.com/swappery/swappery-toolkit/tree/main/packages/uikit/compare/@swappery/uikit@1.1.9...@swappery/uikit@1.2.1) (2022-03-25)
 
 
