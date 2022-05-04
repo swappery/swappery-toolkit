@@ -1,7 +1,6 @@
 import throttle from "lodash/throttle";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import BottomNav from "../../components/BottomNav";
 import { Box, FlexProps } from "../../components/Box";
 import Flex from "../../components/Box/Flex";
 import { Footer } from "../../components/Footer";
@@ -14,7 +13,6 @@ import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_M
 import { NavProps } from "./types";
 import { MenuContext } from "./context";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
-import { Button } from "../../components/Button";
 import tripleLineHorizontalIcon from "./components/TripleLineHorizontal.svg";
 import tripleLineVerticalIcon from "./components/TripleLineVertical.svg";
 
@@ -86,6 +84,7 @@ const MenuItemsWrapper = styled(MenuItems)`
   padding-right: 2rem;
   padding-left: 2rem;
   background-color: ${({ theme }) => theme.colors.navBarBackground};
+  font-family: "Gotham";
 `;
 
 const UserMenu = styled(Flex)<FlexProps>`
@@ -140,7 +139,6 @@ const MobileMenuItemsWrapper = styled(MenuItems)<{ menuHeight: number; showMenu:
 const Menu: React.FC<NavProps> = ({
   userMenu,
   linkComponent = "a",
-  banner,
   isDark,
   toggleTheme,
   swprPriceUsd,
@@ -200,7 +198,7 @@ const Menu: React.FC<NavProps> = ({
         <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
           {isMobile && (
             <TopBannerContainer height={topBannerHeight}>
-              <Logo isMobile={isMobile} width="100%" height={`${topBannerHeight}px`} href="/">
+              <Logo isMobile={isMobile} width="100%" height={`${topBannerHeight}px`} href="/" as={linkComponent}>
                 THE&nbsp;&nbsp;&nbsp;SWAPPERY
               </Logo>
             </TopBannerContainer>
@@ -220,7 +218,7 @@ const Menu: React.FC<NavProps> = ({
                 </MobileMenu>
               ) : (
                 <>
-                  <Logo isMobile={isMobile} height="100%" width="50%" href="/">
+                  <Logo isMobile={isMobile} height="100%" width="50%" href="/" as={linkComponent}>
                     THE SWAPPERY
                   </Logo>
                   <MenuItemsWrapper items={links} activeItem={activeItem} activeSubItem={activeSubItem} width="50%" />

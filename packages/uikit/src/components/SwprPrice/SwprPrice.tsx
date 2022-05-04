@@ -26,7 +26,7 @@ const PriceLink = styled.a`
 const SwprPrice: React.FC<Props> = ({ swprPriceUsd }) => {
   return swprPriceUsd ? (
     <PriceLink
-      href="https://www.the-swappery.com/swap?outputCurrency=0xe6A0943Ced1416d32fEb00d342F52cd8e2A860bA"
+      href="https://www.the-swappery.com/swap?outputCurrency=0x6fa23529476a1337eb5da8238b778e7122d79666"
       target="_blank"
     >
       <LogoRound width="24px" mr="8px" />
